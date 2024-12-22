@@ -1,7 +1,7 @@
 
 
 # manual setting
-max_frames: 160  
+max_frames: 96
 resolution: [256, 512]  # 256 = 64 * 4, 512 = 64 * 8
 round: 5
 ddim_timesteps: 30  
@@ -81,7 +81,7 @@ UNet: {
     'use_checkpoint': True,
     'use_fps_condition': False,
     'use_sim_mask': False,
-    'seq_len': 161
+    'seq_len': 97
 }
 video_compositions: ['image', 'local_image', 'dwpose', 'randomref', 'randomref_pose', 'pose_embedding']
 Diffusion: {
