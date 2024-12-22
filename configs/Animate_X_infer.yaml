@@ -2,7 +2,7 @@
 
 # manual setting
 max_frames: 96
-resolution: [256, 512]  # 256 = 64 * 4, 512 = 64 * 8
+resolution: [512, 768]
 round: 5
 ddim_timesteps: 30  
 seed: 13
