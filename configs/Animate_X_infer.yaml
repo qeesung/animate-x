@@ -70,6 +70,7 @@ UNet: {
     'y_dim': 1024,
     'context_dim': 1024,
     'out_dim': 4,
+    'concat_dim': 32,
     'dim_mult': [1, 2, 4, 4],
     'num_heads': 8,
     'head_dim': 64,
