@@ -29,8 +29,8 @@ vit_resolution: [224, 224]
 use_fp16: True
 batch_size: 1
 latent_random_ref: True
-chunk_size: 2
-decoder_bs: 2
+chunk_size: 1
+decoder_bs: 1
 scale: 8
 use_fps_condition: False
 
