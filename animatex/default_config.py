@@ -45,7 +45,7 @@ cfg.img_dataset = {
     'resolution': cfg.resolution}
 
 cfg.batch_sizes = {
-    str(1):128,
+    str(1):64,
     str(4):4,
     str(8):4,
     str(16):4}
