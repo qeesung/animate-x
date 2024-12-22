@@ -1,13 +1,10 @@
 import torch
 import math
-import os
 
 from utils.registry_class import DIFFUSION
 from .schedules import beta_schedule, sigma_schedule
 from typing import Callable, List, Optional
 import numpy as np
-
-os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:512'
 
 def _i(tensor, t, x):
     r"""Index tensor using t and format the output according to x.
@@ -159,6 +156,7 @@ class DiffusionDDIM(object):
         # print("============")
         # print(model_kwargs) # 'pose_embedding'
         # print("============")
+        # predict distribution
         # print("=============p_mean_variance============")
         # print("=============xt.shape============", xt.shape)
         # print("=============t.shape============", t.shape)
@@ -547,6 +545,7 @@ class DiffusionDDIMLong(object):
                 )
         context_step = min(
                     context_stride, int(np.ceil(np.log2(noise.shape[2] / context_size))) + 1
+                )
         # replace the final segment to improve temporal consistency
         num_frames = noise.shape[2]
         context_queue[-1] = [
@@ -864,6 +863,7 @@ def context_scheduler(
 
     context_stride = min(
         context_stride, int(np.ceil(np.log2(num_frames / context_size))) + 1
+    )
 
     for context_step in 1 << np.arange(context_stride):
         pad = int(round(num_frames * ordered_halving(step)))
